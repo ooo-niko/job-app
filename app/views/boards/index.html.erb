@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="home-title">All Boards</h1>
+  <div>
+    <% @boards.each do |board|%>
+      <div class="card">
+        <div class="card_in">
+          <div class="card_title">
+            <%= board.title %>
+          </div>
+          <div class="article_detail_actions">
+            <div class="dropdown">
+              <%= image_tag 'actions.svg', class: 'dropbtn' %>
+              <div class="dropdown-content mini">
+                <%= link_to '編集する', edit_board_path(@board.id) %>
+              </div>
+            </div>
+          </div>
+          <div class="card_content"> 
+            <%= board.content %>
+          </div>
+          <div class="card_detail">
+            <%= image_tag 'eyecatch1.png' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to new_board_path do %>
+  <div class="card_new">
+    <p class="card_new_title">+ Add new board</p>
+  </div>
+  <% end %>
+</div>
