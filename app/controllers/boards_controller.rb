@@ -41,7 +41,7 @@ class BoardsController < ApplicationController
     redirect_to root_path, notice: '削除しました'
   end
 
-  private 
+  private
   def board_params
     params.require(:board).permit(:title, :content)
   end
