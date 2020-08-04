@@ -1,0 +1,21 @@
+.container
+  %h1.home-title All Boards
+  %div
+    - @boards.each do |board|
+      .card
+        .card_in
+          .card_title
+            = board.title
+          .article_detail_actions
+            .dropdown
+              = image_tag 'actions.svg', class: 'dropbtn'
+              .dropdown-content.mini
+                = link_to 'Edit', edit_board_path(board.id)
+                = link_to 'Delete', board_path(board.id), data: { method: 'delete' }
+          .card_content
+            = board.content
+          .card_detail
+            = image_tag 'eyecatch1.png'
+  = link_to new_board_path do
+    .card_new
+      %p.card_new_title + Add new board
